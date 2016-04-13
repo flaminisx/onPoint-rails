@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'quest/index'
+
+  get 'quest/show'
+
+  get 'quest/edit'
+
+  get 'quest/create'
+
+  get 'quest/update'
+
+  get 'quest/destroy'
+
   get 'user', to: 'user#show'
 
   get 'main_page/index'
