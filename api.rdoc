@@ -12,6 +12,7 @@ user:{
 				name: string,
 				description: text,
 				price: string,
+				logo: string,
 				checkpoint:{
 					id:int,
 					desc:string,
@@ -52,6 +53,7 @@ user:{
 			description: text,
 			price: string,
 			status: int,
+			logo: string
 		}
 	]
 }
@@ -69,6 +71,7 @@ user:{
 			description: text,
 			price: string,
 			status: int,
+			logo:string
 		}
 	]
 }
@@ -81,6 +84,36 @@ user:{
 	status: int,
 	downloads: int,
 	logo: string
+}
+/quest/agree/:id - add this quest to user currents
+{
+	id:int,
+	name: string,
+	description: text,
+	price: string,
+	status: int,
+	downloads: int,
+	logo: string,
+	checkpoint:{
+				id:int,
+				desc:string,
+				tasks:[
+						{
+							id:int,
+							type: string,
+							desc: string,
+							show:boolean,
+							/*
+								may be marker long/lat, photo scr, device id, game id etc
+							*/
+						},
+						{
+							...
+						},
+						...
+
+				]
+			}
 }
 /quest/list/?last_id=0&count=10 - get short data about all quests
 /quest/search/:query?params=%string% - search by params
