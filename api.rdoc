@@ -1,11 +1,18 @@
 template of this api will always be available on http://83.220.175.77:3000
-/all/ - info about user, quests, cps, etc...
-user:{
+!!!! always add .json to path
+/auth/ - authentification. post data: {
+											email: string,
+											password: string
+										}
+returns int status value
+
+/user/all/ - info about user, quests, cps, etc...
+{
 	id:int,
 	name: string,
 	surname: string,
 	experience: int,
-	role: string.
+	role: string,
 	quests:[
 			{
 				id:int,
@@ -21,6 +28,7 @@ user:{
 								id:int,
 								type: string,
 								desc: string,
+								order: int,
 								show:boolean,
 								/*
 									may be marker long/lat, photo scr, device id, game id etc
@@ -40,23 +48,6 @@ user:{
 }
 
 /user/ - short info about current user
-{
-	id:int,
-	name: string,
-	surname: string,
-	experience: int,
-	role: string,
-	quests:[
-		{
-			id:int,
-			name: string,
-			description: text,
-			price: string,
-			status: int,
-			logo: string
-		}
-	]
-}
 /user/:id - info about specific user
 {
 	id:int,
@@ -75,6 +66,7 @@ user:{
 		}
 	]
 }
+
 /quest/:id - info about quest
 {
 	id:int,
@@ -85,6 +77,7 @@ user:{
 	downloads: int,
 	logo: string
 }
+
 /quest/agree/:id - add this quest to user currents
 {
 	id:int,
@@ -102,6 +95,7 @@ user:{
 							id:int,
 							type: string,
 							desc: string,
+							order: int,
 							show:boolean,
 							/*
 								may be marker long/lat, photo scr, device id, game id etc
@@ -115,21 +109,22 @@ user:{
 				]
 			}
 }
-/quest/list/?last_id=0&count=10 - get short data about all quests
-/quest/search/:query?params=%string% - search by params
+
+/quests/?last_id=0&count=10 - get short data about all quests
+/quests/search/:query?params=%string% - search by params
 [		
 	{
 		id:int,
 		name: string,
 		description: text,
 		price: string,
-		status: int,
 		downloads: int,
 		logo: string
 	},
 	{ ... },
 	...
 ]
+
 /checkpoint/complete/:id/?task_selected=%int% - set this checkpoint as complete and get next checkpoint
 /checkpoint/next/?last_cp=%int%&task_selected=%int% - get next checkpoint
 /checkpoint/:id - get specific checkpoint
@@ -141,6 +136,7 @@ user:{
 				id:int,
 				type: string,
 				desc: string,
+				order: int,
 				show:boolean,
 				/*
 					may be marker long/lat, photo scr, device id, game id etc
@@ -153,3 +149,28 @@ user:{
 
 	]
 }
+/checkpoints/?quest_id=%int% - get all checkpoints on specific quest
+[
+	{
+	id:int,
+	desc:string,
+	tasks:[
+			{
+				id:int,
+				type: string,
+				desc: string,
+				order: int,
+				show:boolean,
+				/*
+					may be marker long/lat, photo scr, device id, game id etc
+				*/
+			},
+			{
+				...
+			},
+			...
+
+		]
+	},
+	{...},...
+]

@@ -1,20 +1,19 @@
 Rails.application.routes.draw do
-  get 'quest/index'
 
-  get 'quest/show'
-
-  get 'quest/edit'
-
-  get 'quest/create'
-
-  get 'quest/update'
-
-  get 'quest/destroy'
-
+  get 'quests', to: 'quest#index'
+  get 'quests/search', to: 'quest#search'
+  get 'quest/agree/:id', to: 'quest#agree'
+  get 'quest/:id', to: 'quest#show'
+  #get 'quest/edit'
+  #get 'quest/create'
+  #get 'quest/update'
+  #get 'quest/destroy'
+  
+  get 'user/all', to: 'user#all'
   get 'user', to: 'user#show'
+  get 'user/:id', to: 'user#show' 
 
-  get 'main_page/index'
-
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
