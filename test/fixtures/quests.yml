@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  desctiption: MyText
+  reward: 1
+  experience: 1
+  price: 1.5
+  start_id: 1
+  downloads: 1
+  logo: MyString
+
+two:
+  name: MyString
+  desctiption: MyText
+  reward: 1
+  experience: 1
+  price: 1.5
+  start_id: 1
+  downloads: 1
+  logo: MyString
