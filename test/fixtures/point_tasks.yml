@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  this_cp_id: 1
+  next_cp_id: 1
+  task_id: 1
+  order: 1
+
+two:
+  this_cp_id: 1
+  next_cp_id: 1
+  task_id: 1
+  order: 1

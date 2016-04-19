@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418210841) do
+ActiveRecord::Schema.define(version: 20160419221145) do
 
   create_table "checkpoints", force: :cascade do |t|
     t.integer  "quest_id",    limit: 4
@@ -19,6 +19,23 @@ ActiveRecord::Schema.define(version: 20160418210841) do
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "photo_tasks", force: :cascade do |t|
+    t.string   "image",       limit: 255
+    t.string   "answer",      limit: 255
+    t.string   "description", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "point_tasks", force: :cascade do |t|
+    t.integer  "this_cp_id", limit: 4
+    t.integer  "next_cp_id", limit: 4
+    t.integer  "task_id",    limit: 4
+    t.integer  "order",      limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "quests", force: :cascade do |t|
@@ -32,6 +49,23 @@ ActiveRecord::Schema.define(version: 20160418210841) do
     t.string   "logo",        limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "element_type",  limit: 255
+    t.integer  "element_id",    limit: 4
+    t.string   "description",   limit: 255
+    t.integer  "point_task_id", limit: 4
+    t.boolean  "showable"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "text_tasks", force: :cascade do |t|
+    t.text     "text",       limit: 65535
+    t.string   "answer",     limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "user_quests", force: :cascade do |t|

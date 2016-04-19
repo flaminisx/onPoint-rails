@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  element_type: MyString
+  element_id: 1
+  description: MyString
+  point_task_id: 1
+  showable: false
+
+two:
+  element_type: MyString
+  element_id: 1
+  description: MyString
+  point_task_id: 1
+  showable: false
