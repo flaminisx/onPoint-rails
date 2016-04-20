@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419221145) do
+ActiveRecord::Schema.define(version: 20160420155502) do
 
   create_table "checkpoints", force: :cascade do |t|
     t.integer  "quest_id",    limit: 4
@@ -22,11 +22,10 @@ ActiveRecord::Schema.define(version: 20160419221145) do
   end
 
   create_table "photo_tasks", force: :cascade do |t|
-    t.string   "image",       limit: 255
-    t.string   "answer",      limit: 255
-    t.string   "description", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "image",      limit: 255
+    t.string   "answer",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "point_tasks", force: :cascade do |t|
@@ -53,13 +52,12 @@ ActiveRecord::Schema.define(version: 20160419221145) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "element_type",  limit: 255
-    t.integer  "element_id",    limit: 4
-    t.string   "description",   limit: 255
-    t.integer  "point_task_id", limit: 4
+    t.string   "element_type", limit: 255
+    t.integer  "element_id",   limit: 4
+    t.string   "description",  limit: 255
     t.boolean  "showable"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "text_tasks", force: :cascade do |t|
@@ -81,6 +79,7 @@ ActiveRecord::Schema.define(version: 20160419221145) do
     t.string   "name",            limit: 255
     t.string   "surname",         limit: 255
     t.string   "email",           limit: 255
+    t.string   "avatar",          limit: 255
     t.string   "password_digest", limit: 255
     t.string   "salt",            limit: 255
     t.string   "role",            limit: 255

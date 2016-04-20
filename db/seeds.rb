@@ -28,3 +28,12 @@ Checkpoint.create(quest_id:1, parent_id: nil, description: "first checkpoint")
 Checkpoint.create(quest_id:1, parent_id: 1, description: "second")
 Checkpoint.create(quest_id:2, parent_id: nil, description: "first from second")
 Checkpoint.create(quest_id:2, parent_id: 3, description: "second second")
+
+TextTask.create(text: "RUA wizard?", answer: "Yep")
+PhotoTask.create(image: "Duke_of_?.jpg", answer: "flies")
+Task.create(element: TextTask.find(1), showable: true, 
+	        description: "The Binding..")
+Task.create(element: PhotoTask.find(1), showable: true, 
+	        description: "The Binding - 2..")
+PointTask.create(this_cp_id: 1, next_cp_id: nil, task_id: 1, order: 1)
+PointTask.create(this_cp_id: 1, next_cp_id: 2, task_id: 2, order: 2)

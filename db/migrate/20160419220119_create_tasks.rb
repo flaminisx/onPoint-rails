@@ -4,7 +4,6 @@ class CreateTasks < ActiveRecord::Migration
       t.string :element_type
       t.integer :element_id
       t.string :description
-      t.integer :point_task_id
       t.boolean :showable
 
       t.timestamps null: false
