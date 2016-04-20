@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419221145) do
+ActiveRecord::Schema.define(version: 20160420164138) do
+
 
   create_table "checkpoints", force: :cascade do |t|
     t.integer  "quest_id",    limit: 4
@@ -19,6 +20,37 @@ ActiveRecord::Schema.define(version: 20160419221145) do
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "device_tasks", force: :cascade do |t|
+    t.integer  "device_id",  limit: 4
+    t.string   "request",    limit: 255
+    t.string   "response",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "devices", force: :cascade do |t|
+    t.float    "lon",        limit: 24
+    t.float    "lat",        limit: 24
+    t.float    "radius",     limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "game_tasks", force: :cascade do |t|
+    t.integer  "game_id",    limit: 4
+    t.string   "answer",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "marker_tasks", force: :cascade do |t|
+    t.float    "lon",        limit: 24
+    t.float    "lat",        limit: 24
+    t.float    "radius",     limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "photo_tasks", force: :cascade do |t|
