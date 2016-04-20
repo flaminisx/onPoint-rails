@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   #get 'quest/destroy'
   
   get 'user/all', to: 'user#all'
-  get 'user', to: 'user#show'
-  get 'user/:id', to: 'user#show' 
+  get 'user/:id', to: 'user#show', as: "user"
+  get 'user/', to: 'user#show'
   get 'register/', to: 'user#register'
   get 'login/', to: 'user#login'
   post 'register', to: 'user#create'
