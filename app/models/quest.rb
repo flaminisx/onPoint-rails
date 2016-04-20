@@ -1,8 +1,6 @@
 class Quest < ActiveRecord::Base
 	has_many :user_quests
 	has_many :users, through: :user_quests
-#   	belongs_to :start, class_name: "Checkpoint"
-    has_one :start, -> { where(id: start_id)},
-                    class_name: "Checkpoint"
+	belongs_to :start, class_name: "Checkpoint", foreign_key: "start_id"
 	has_many :checkpoints
 end

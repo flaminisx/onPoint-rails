@@ -7,10 +7,13 @@ class CreateQuests < ActiveRecord::Migration
       t.integer :experience
       t.float :price
       t.integer :start_id
-      t.integer :downloads
+      t.integer :downloads, default: 0
       t.string :logo
 
       t.timestamps null: false
     end
+  end
+  def down
+    drop_table :quests
   end
 end
