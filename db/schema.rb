@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420155502) do
+ActiveRecord::Schema.define(version: 20160419221145) do
 
   create_table "checkpoints", force: :cascade do |t|
     t.integer  "quest_id",    limit: 4
