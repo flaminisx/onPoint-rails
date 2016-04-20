@@ -7,8 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class="container">
+		<%= yield %>
+	</div>
+	<% if flash[:notice] %>
+	  	<script type="text/javascript">
+	  		$(document).ready(function(){
+	  			Materialize.toast('<%= flash[:notice]%>', 4000);
+	  		});
+	  	</script>
+	<% end %>
 </body>
 </html>
