@@ -3,7 +3,7 @@ class CreateUserQuests < ActiveRecord::Migration
     create_table :user_quests do |t|
       t.integer :user_id
       t.integer :quest_id
-      t.integer :checkpoint
+      t.integer :checkpoint_id
 
       t.timestamps null: false
     end

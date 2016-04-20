@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160419221145) do
     t.text     "description", limit: 65535
     t.integer  "reward",      limit: 4
     t.integer  "experience",  limit: 4
+    t.integer  "owner_id",    limit: 4
     t.float    "price",       limit: 24
     t.integer  "start_id",    limit: 4
     t.integer  "downloads",   limit: 4,     default: 0
@@ -69,11 +70,11 @@ ActiveRecord::Schema.define(version: 20160419221145) do
   end
 
   create_table "user_quests", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "quest_id",   limit: 4
-    t.integer  "checkpoint", limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "user_id",       limit: 4
+    t.integer  "quest_id",      limit: 4
+    t.integer  "checkpoint_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -5,6 +5,7 @@ class CreateQuests < ActiveRecord::Migration
       t.text :description
       t.integer :reward
       t.integer :experience
+      t.integer :owner_id
       t.float :price
       t.integer :start_id
       t.integer :downloads, default: 0
