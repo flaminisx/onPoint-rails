@@ -1,5 +1,10 @@
 class UserController < ApplicationController
+	before_action :getUser, only:[:show]
+  def getUser
+  	@user = (params[:id])? User.find(params[:id]): User.find(session[:user_id]) 
+  end
   def show
+  	@quests = @user.quests
   	respond_to do |format|
   		format.json {
   		    render json: @user.to_json(:except => [:password_digest, :salt], 
