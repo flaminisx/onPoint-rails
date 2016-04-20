@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   get 'user', to: 'user#show'
   get 'user/:id', to: 'user#show' 
   get 'register/', to: 'user#register'
+  get 'login/', to: 'user#login'
   post 'register', to: 'user#create'
+  post 'auth', to: 'user#auth'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

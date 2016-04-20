@@ -1,8 +1,11 @@
 namespace :db do
   desc "TODO"
   task rearrange: :environment do
-  	Rake::Task['db:migrate'].execute('VERSION=0')
-  	Rake::Task['db:migrate'].execute()
+  	ENV['VERSION']= '0'
+	Rake::Task['db:migrate'].invoke
+	Rake::Task['db:migrate'].reenable
+	ENV.delete 'VERSION'
+	Rake::Task["db:migrate"].invoke
   	Rake::Task['db:seed'].execute()
   end
 
