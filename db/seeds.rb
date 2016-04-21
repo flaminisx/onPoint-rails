@@ -13,15 +13,16 @@ salt2 = BCrypt::Engine.generate_salt
 pass1 = BCrypt::Engine.hash_secret('password', salt1)
 pass2 = BCrypt::Engine.hash_secret('password', salt2)
 User.create(name: "Igor", surname: "Best", password_digest: pass1, salt: salt1, 
-	        email:"optimum.flaminis@gmail.com", role:"client", avatar: "a1.jpg")
+	        email:"optimum.flaminis@gmail.com", role:"client", avatar: "a1.jpg",
+	        experience: 17, money: 14)
 User.create(name: "Dann", surname: "Best", password_digest: pass2, salt: salt2, 
-	        email:"anichindaniil@gmail.com", role:"admin", avatar: "ava2.jpg",
+	        email:"anichindaniil@gmail.com", role:"admin", avatar: "ava2.png",
 	        experience: 35, money: 20)
 # Quest.create(name:"test Quest", description:"some description to show", 
 # 	         reward: 10, experience: 10, price: 0, start_id: 1, downloads: 0, 
 # 	         logo: "1.jpg")
 Quest.create(name:"Dune", description:"Frenk Herbert's Dune world is waiting for you",
-             reward: 15, experience: 15, price: 0, start_id: nil, downloads: 0,
+             reward: 15, experience: 15, price: 0, start_id: 1, downloads: 0,
 	         logo: "dune-rider.jpg")
 UserQuest.create(user_id: 1, quest_id: 1, checkpoint_id: 1)
 UserQuest.create(user_id: 2, quest_id: 2, checkpoint_id: 2)

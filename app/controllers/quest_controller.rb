@@ -19,6 +19,10 @@ class QuestController < ApplicationController
   end
 
   def show
+    @quest = Quest.find(params[:id])
+    if(@current_user.hasQuest?(@quest.id)) then
+      @checkpoint = @current_user.user_quests.where(quest_id: @quest.id).first.checkpoint
+    end
     respond_to do |format|
       format.json { 
         render json: {
@@ -31,11 +35,16 @@ class QuestController < ApplicationController
                     logo: 'img'
                   }
       }
-      format.html{ render :show}
+      format.html{ render :show, layout:"account"}
     end
   end
 
   def edit
+    @quest = Quest.find(params[:id])
+    @checkpoints = @quest.checkpoints.map do |e|
+      e.attributes.merge(tasks:e.pointTasks.order(:order))
+    end
+    render :edit, layout:"account"
   end
 
   def create

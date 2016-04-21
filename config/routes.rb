@@ -4,12 +4,13 @@ Rails.application.routes.draw do
   get 'quests/search', to: 'quest#search'
   get 'quest/agree/:id', to: 'quest#agree'
   get 'quest/:id', to: 'quest#show'
-  #get 'quest/edit'
+  get 'quest/:id/edit', to: 'quest#edit'
   #get 'quest/create'
   #get 'quest/update'
   #get 'quest/destroy'
   
   get 'user/all', to: 'user#all'
+  get 'user/quests', to: 'user#quests'
   get 'user/:id', to: 'user#show', as: "user"
   get 'user/', to: 'user#show'
   get 'register/', to: 'user#register'
