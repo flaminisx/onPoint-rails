@@ -1,5 +1,6 @@
 class QuestController < ApplicationController
   def index
+    @quests = Quest.all
     respond_to do |format|
       format.json { 
         render json: [    

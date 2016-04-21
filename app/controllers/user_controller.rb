@@ -4,6 +4,7 @@ class UserController < ApplicationController
   	@user = (params[:id])? User.find(params[:id]): User.find(session[:user_id]) 
   end
   def show
+  	if(@user.nil?) then redirect_to '/login' end
   	@quests = @user.quests
   	respond_to do |format|
   		format.json { 
