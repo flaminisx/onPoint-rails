@@ -7,30 +7,33 @@ class UserController < ApplicationController
   	if(@user.nil?) then redirect_to '/login' end
   	@quests = @user.quests
   	respond_to do |format|
-  		format.json { 
-  			render json: {
-  					id:1, 
-  					name: "you", 
-  					surname: 'surname',
-					experience: '20',
-					role: 'user',
-					quests:[
-								{
-									id:1,
-									name: 'string',
-									description: 'text',
-									price: 'string',
-									status: 0,
-								},
-								{
-									id:2,
-									name: 'string',
-									description: 'text',
-									price: 'string',
-									status: 0,
-								}
-							]
-  				}
+  		format.json {
+  		    render json: @user.to_json(:except => [:password_digest, :salt], 
+  		    	:include => [:quests])
+
+  		# 	render json: {
+  		# 			id:1, 
+  		# 			name: "you", 
+  		# 			surname: 'surname',
+				# 	experience: '20',
+				# 	role: 'user',
+				# 	quests:[
+				# 				{
+				# 					id:1,
+				# 					name: 'string',
+				# 					description: 'text',
+				# 					price: 'string',
+				# 					status: 0,
+				# 				},
+				# 				{
+				# 					id:2,
+				# 					name: 'string',
+				# 					description: 'text',
+				# 					price: 'string',
+				# 					status: 0,
+				# 				}
+				# 			]
+  		# 		}
   		}
   		format.html{ render :show}
   	end
