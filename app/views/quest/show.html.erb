@@ -1,2 +1,31 @@
-<h1>Quest#show</h1>
-<p>Find me in app/views/quest/show.html.erb</p>
+<% provide(:title, "Quest")%>
+<h3 class="center-align"><%= @quest.name%></h3>
+<%= image_tag @quest.logo, class: 'quest-logo'%>
+<div class="row">
+	<div class="col l4 offset-l3 left-align">Reward:</div>
+	<div class="col l1 right-align"><%= @quest.reward %></div>
+</div>
+<div class="row">
+	<div class="col l4 offset-l3 left-align">Experience:</div>
+	<div class="col l1 right-align"><%= @quest.experience %></div>
+</div>
+<%if @current_user.hasQuest?(@quest.id) then %>
+<div class="row">
+	<div class="col l4 offset-l3 left-align">You stopped on task:</div>
+	<div class="col l2 "><%= @checkpoint.description %></div>
+</div>
+<% else %>
+<div class="row">
+	<div class="col l4 offset-l3 left-align">Downloads:</div>
+	<div class="col l1 right-align"><%= @quest.downloads %></div>
+</div>
+<div class="row">
+	<div class="col l4 offset-l3 left-align">Price:</div>
+	<div class="col l1 right-align"><%= @quest.price %></div>
+</div>
+<div class="row">
+	<div class="col l5 offset-l3 left-align">
+	<button style="width:100%" class="btn green">Accept Quest!</button>
+	</div>
+</div>
+<% end %>

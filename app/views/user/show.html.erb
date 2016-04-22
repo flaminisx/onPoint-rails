@@ -9,13 +9,13 @@
   			</div>
   			<div class="row">
   				<div class="col l3 offset-l4 left-align">Level:</div>
-  				<div class="col l1 right-align"><%= 1 %></div>
+  				<div class="col l1 right-align"><%= @user.level %></div>
   			</div>
 		</div>
 	</div>
 </header>
 <div class="progress" style="margin:0">
-	<div class="determinate green" style="width: 70%"></div>
+	<div class="determinate green" style="width: <%= @user.progress%>%"></div>
 </div>
 <main>
 	<div class="container">

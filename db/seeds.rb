@@ -22,7 +22,7 @@ dann = User.create(name: "Dann", surname: "Best", password_digest: pass2, salt: 
 # 	         reward: 10, experience: 10, price: 0, start_id: 1, downloads: 0, 
 # 	         logo: "1.jpg")
 Quest.create(name:"Dune", description:"Frenk Herbert's Dune world is waiting for you",
-             reward: 15, experience: 15, price: 0, start_id: nil, downloads: 0,
+             reward: 15, experience: 15, price: 0, start_id: 1, downloads: 0,
 	         logo: "dune-rider.jpg")
 # cp = Checkpoint.create(quest_id:1, parent_id: nil, description: "first checkpoint")
 # cp = Checkpoint.create(quest_id:1, parent_id: 1, description: "second")

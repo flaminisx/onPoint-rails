@@ -1,2 +1,16 @@
-<h1>Quest#index</h1>
-<p>Find me in app/views/quest/index.html.erb</p>
+<div class="container">
+	<h3 class="center-align">All Quests</h3>
+	<ul class="collection quests">
+			<% @quests.each do |q|%>
+			<li class="collection-item avatar" id='<%= q.id %>'>
+				<%= image_tag "/images/"+((!q.logo.nil?)? q.logo : 'bg.jpg'), class: "circle"%>
+				<span class="title"><%= q.name%></span>
+				<p>
+					<%= q.description %><br>
+					Reward: <%= q.reward %>
+				</p>
+				<a class="secondary-content"><!-- <i class="material-icons">done</i> --></a>
+			</li>
+			<% end %>
+		</ul>
+</div>

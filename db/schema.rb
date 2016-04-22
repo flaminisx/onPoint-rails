@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160420164138) do
 
-
   create_table "checkpoints", force: :cascade do |t|
     t.integer  "quest_id",    limit: 4
     t.integer  "parent_id",   limit: 4
