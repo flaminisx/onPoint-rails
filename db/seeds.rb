@@ -56,7 +56,7 @@ sc2 = Quest.create(name:"Star Craft: episode II", description:"Story from the wo
 	         reward: 15, experience: 10, price: 0, start_id: 9, downloads: 0, 
 	         logo: "SC-logo2.jpg")  # 1
 cp = Checkpoint.create(quest_id: sc2.id, parent_id: nil, description: "Who are you?") #9
-quest.update(start_id: cp.id)
+sc2.update(start_id: cp.id)
 UserQuest.create(user_id: dann.id, quest_id: sc2.id, checkpoint_id: cp.id)
 fp = PhotoTask.create(image: "kerrigan-art.jpg", answer: "Sarah Kerrigan")  # 2
 t = Task.create(element: fp, showable: true, 
